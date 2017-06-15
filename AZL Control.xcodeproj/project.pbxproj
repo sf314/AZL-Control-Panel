@@ -7,8 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC258AFA1EEE058000CA9683 /* ORSSerialPort.m in Sources */ = {isa = PBXBuildFile; fileRef = DC258AF11EEE058000CA9683 /* ORSSerialPort.m */; };
+		DC258AFB1EEE058000CA9683 /* ORSSerialPortManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC258AF31EEE058000CA9683 /* ORSSerialPortManager.m */; };
+		DC258AFC1EEE058000CA9683 /* ORSSerialBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC258AF51EEE058000CA9683 /* ORSSerialBuffer.m */; };
+		DC258AFD1EEE058000CA9683 /* ORSSerialPacketDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC258AF71EEE058000CA9683 /* ORSSerialPacketDescriptor.m */; };
+		DC258AFE1EEE058000CA9683 /* ORSSerialRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC258AF91EEE058000CA9683 /* ORSSerialRequest.m */; };
+		DC3830F81EF075DC00607281 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3830F71EF075DC00607281 /* Parser.swift */; };
+		DC3830F91EF075DC00607281 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3830F71EF075DC00607281 /* Parser.swift */; };
+		DC3830FB1EF0891300607281 /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3830FA1EF0891300607281 /* DataPoint.swift */; };
+		DC3830FC1EF0891300607281 /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3830FA1EF0891300607281 /* DataPoint.swift */; };
+		DC3830FE1EF09ED300607281 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3830FD1EF09ED300607281 /* Telemetry.swift */; };
+		DC3830FF1EF09ED300607281 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3830FD1EF09ED300607281 /* Telemetry.swift */; };
+		DC3831011EF09EE600607281 /* PacketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3831001EF09EE600607281 /* PacketRouter.swift */; };
+		DC3831021EF09EE600607281 /* PacketRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3831001EF09EE600607281 /* PacketRouter.swift */; };
+		DC7122B51EF22121004A3F87 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7122B41EF22121004A3F87 /* MapView.swift */; };
+		DC7122B61EF22121004A3F87 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7122B41EF22121004A3F87 /* MapView.swift */; };
+		DC7122B81EF22417004A3F87 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7122B71EF22417004A3F87 /* Colours.swift */; };
+		DC7122B91EF22417004A3F87 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7122B71EF22417004A3F87 /* Colours.swift */; };
+		DC7122BB1EF22C3C004A3F87 /* CocoaColorLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7122BA1EF22C3C004A3F87 /* CocoaColorLib.swift */; };
+		DC7122BC1EF22C3C004A3F87 /* CocoaColorLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7122BA1EF22C3C004A3F87 /* CocoaColorLib.swift */; };
 		DCA9980B1EEE04C50034A6C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA9980A1EEE04C50034A6C6 /* AppDelegate.swift */; };
-		DCA9980D1EEE04C50034A6C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA9980C1EEE04C50034A6C6 /* ViewController.swift */; };
+		DCA9980D1EEE04C50034A6C6 /* ControlPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA9980C1EEE04C50034A6C6 /* ControlPanelController.swift */; };
 		DCA9980F1EEE04C50034A6C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA9980E1EEE04C50034A6C6 /* Assets.xcassets */; };
 		DCA998121EEE04C50034A6C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA998101EEE04C50034A6C6 /* Main.storyboard */; };
 		DCA9981D1EEE04C50034A6C6 /* AZL_ControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA9981C1EEE04C50034A6C6 /* AZL_ControlTests.swift */; };
@@ -25,9 +44,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC258AEF1EEE057F00CA9683 /* AZL Control-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AZL Control-Bridging-Header.h"; sourceTree = "<group>"; };
+		DC258AF01EEE058000CA9683 /* ORSSerialPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPort.h; sourceTree = "<group>"; };
+		DC258AF11EEE058000CA9683 /* ORSSerialPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPort.m; sourceTree = "<group>"; };
+		DC258AF21EEE058000CA9683 /* ORSSerialPortManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPortManager.h; sourceTree = "<group>"; };
+		DC258AF31EEE058000CA9683 /* ORSSerialPortManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPortManager.m; sourceTree = "<group>"; };
+		DC258AF41EEE058000CA9683 /* ORSSerialBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialBuffer.h; sourceTree = "<group>"; };
+		DC258AF51EEE058000CA9683 /* ORSSerialBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialBuffer.m; sourceTree = "<group>"; };
+		DC258AF61EEE058000CA9683 /* ORSSerialPacketDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPacketDescriptor.h; sourceTree = "<group>"; };
+		DC258AF71EEE058000CA9683 /* ORSSerialPacketDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPacketDescriptor.m; sourceTree = "<group>"; };
+		DC258AF81EEE058000CA9683 /* ORSSerialRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialRequest.h; sourceTree = "<group>"; };
+		DC258AF91EEE058000CA9683 /* ORSSerialRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialRequest.m; sourceTree = "<group>"; };
+		DC3830F71EF075DC00607281 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		DC3830FA1EF0891300607281 /* DataPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
+		DC3830FD1EF09ED300607281 /* Telemetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
+		DC3831001EF09EE600607281 /* PacketRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketRouter.swift; sourceTree = "<group>"; };
+		DC7122B41EF22121004A3F87 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		DC7122B71EF22417004A3F87 /* Colours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
+		DC7122BA1EF22C3C004A3F87 /* CocoaColorLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaColorLib.swift; sourceTree = "<group>"; };
 		DCA998071EEE04C50034A6C6 /* AZL Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AZL Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA9980A1EEE04C50034A6C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DCA9980C1EEE04C50034A6C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DCA9980C1EEE04C50034A6C6 /* ControlPanelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelController.swift; sourceTree = "<group>"; };
 		DCA9980E1EEE04C50034A6C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCA998111EEE04C50034A6C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCA998131EEE04C50034A6C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,10 +113,28 @@
 			isa = PBXGroup;
 			children = (
 				DCA9980A1EEE04C50034A6C6 /* AppDelegate.swift */,
-				DCA9980C1EEE04C50034A6C6 /* ViewController.swift */,
+				DCA9980C1EEE04C50034A6C6 /* ControlPanelController.swift */,
+				DC3830F71EF075DC00607281 /* Parser.swift */,
+				DC3830FA1EF0891300607281 /* DataPoint.swift */,
+				DC3830FD1EF09ED300607281 /* Telemetry.swift */,
+				DC3831001EF09EE600607281 /* PacketRouter.swift */,
+				DC7122B41EF22121004A3F87 /* MapView.swift */,
+				DC7122B71EF22417004A3F87 /* Colours.swift */,
+				DC7122BA1EF22C3C004A3F87 /* CocoaColorLib.swift */,
 				DCA9980E1EEE04C50034A6C6 /* Assets.xcassets */,
+				DC258AF01EEE058000CA9683 /* ORSSerialPort.h */,
+				DC258AF11EEE058000CA9683 /* ORSSerialPort.m */,
+				DC258AF21EEE058000CA9683 /* ORSSerialPortManager.h */,
+				DC258AF31EEE058000CA9683 /* ORSSerialPortManager.m */,
+				DC258AF41EEE058000CA9683 /* ORSSerialBuffer.h */,
+				DC258AF51EEE058000CA9683 /* ORSSerialBuffer.m */,
+				DC258AF61EEE058000CA9683 /* ORSSerialPacketDescriptor.h */,
+				DC258AF71EEE058000CA9683 /* ORSSerialPacketDescriptor.m */,
+				DC258AF81EEE058000CA9683 /* ORSSerialRequest.h */,
+				DC258AF91EEE058000CA9683 /* ORSSerialRequest.m */,
 				DCA998101EEE04C50034A6C6 /* Main.storyboard */,
 				DCA998131EEE04C50034A6C6 /* Info.plist */,
+				DC258AEF1EEE057F00CA9683 /* AZL Control-Bridging-Header.h */,
 			);
 			path = "AZL Control";
 			sourceTree = "<group>";
@@ -143,6 +198,7 @@
 				TargetAttributes = {
 					DCA998061EEE04C50034A6C6 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					DCA998171EEE04C50034A6C6 = {
@@ -195,8 +251,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCA9980D1EEE04C50034A6C6 /* ViewController.swift in Sources */,
+				DC3830FB1EF0891300607281 /* DataPoint.swift in Sources */,
+				DC7122B51EF22121004A3F87 /* MapView.swift in Sources */,
+				DC258AFA1EEE058000CA9683 /* ORSSerialPort.m in Sources */,
+				DC7122B81EF22417004A3F87 /* Colours.swift in Sources */,
+				DC258AFB1EEE058000CA9683 /* ORSSerialPortManager.m in Sources */,
+				DC7122BB1EF22C3C004A3F87 /* CocoaColorLib.swift in Sources */,
+				DC3830FE1EF09ED300607281 /* Telemetry.swift in Sources */,
+				DC258AFE1EEE058000CA9683 /* ORSSerialRequest.m in Sources */,
+				DCA9980D1EEE04C50034A6C6 /* ControlPanelController.swift in Sources */,
+				DC3830F81EF075DC00607281 /* Parser.swift in Sources */,
+				DC3831011EF09EE600607281 /* PacketRouter.swift in Sources */,
+				DC258AFD1EEE058000CA9683 /* ORSSerialPacketDescriptor.m in Sources */,
 				DCA9980B1EEE04C50034A6C6 /* AppDelegate.swift in Sources */,
+				DC258AFC1EEE058000CA9683 /* ORSSerialBuffer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +272,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC3830FC1EF0891300607281 /* DataPoint.swift in Sources */,
+				DC7122BC1EF22C3C004A3F87 /* CocoaColorLib.swift in Sources */,
+				DC7122B91EF22417004A3F87 /* Colours.swift in Sources */,
+				DC7122B61EF22121004A3F87 /* MapView.swift in Sources */,
+				DC3830FF1EF09ED300607281 /* Telemetry.swift in Sources */,
+				DC3830F91EF075DC00607281 /* Parser.swift in Sources */,
 				DCA9981D1EEE04C50034A6C6 /* AZL_ControlTests.swift in Sources */,
+				DC3831021EF09EE600607281 /* PacketRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,11 +401,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "AZL Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Prograde.AZL-Control";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AZL Control/AZL Control-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -339,11 +417,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "AZL Control/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Prograde.AZL-Control";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AZL Control/AZL Control-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -397,6 +477,7 @@
 				DCA998231EEE04C50034A6C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCA998241EEE04C50034A6C6 /* Build configuration list for PBXNativeTarget "AZL ControlTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +486,7 @@
 				DCA998261EEE04C50034A6C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
