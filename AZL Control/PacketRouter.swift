@@ -26,11 +26,12 @@ func routePacket(_ packet: String) {
     let id = arr[0]
     
     switch id {
-        case "ID": break
-        case "DAT": break
-        case "LIM": break
-        
-        
+    case "ID":
+        telem.add(field: arr)
+    case "DAT":
+        telem.add(data: arr)
+    case "LIM":
+        telem.updateBounds(data: arr)
     default:
         print("\troutePacket(): Invalid packet ID: (\(id))")
         break

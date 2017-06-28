@@ -7,6 +7,10 @@
 //  Utilizes ORSSerialPort open-source library
 //
 
+// TODO: - Update UI to include NSTableView
+// TODO: - Remove references to discrete UI fields
+// TODO: - Add function that uses telem.data to update table data
+
 import Cocoa
 
 class ControlPanelController: NSViewController, ORSSerialPortDelegate {

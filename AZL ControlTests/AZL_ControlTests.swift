@@ -42,7 +42,7 @@ class AZL_ControlTests: XCTestCase {
         
         // Print them for certainty
         for (id, point) in tel.data {
-            print("\(id): \(point.name)")
+            print("\(id): \(point.description())")
         }
     }
     
@@ -59,6 +59,11 @@ class AZL_ControlTests: XCTestCase {
         // Check data values
         XCTAssert(tel.data[1]?.value == 13.5)
         XCTAssert(tel.data[2]?.value == 21.3)
+        
+        // Print for verification
+        for (id, point) in tel.data {
+            print("\(id): \(point.description())")
+        }
     }
     
     
