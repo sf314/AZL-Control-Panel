@@ -27,4 +27,8 @@ class DataPoint {
             return value >= min && value <= max
         }
     }
+    
+    func description() -> String {
+        return "\(name) = \(value) <\(min), \(max)>"
+    }
 }
