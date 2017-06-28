@@ -149,18 +149,12 @@ class ControlPanelController: NSViewController, ORSSerialPortDelegate {
     // MARK: - Update UI from telemetry ****************************************
     func updateTelemetryLabels() {
         
-        // Test
-        positionValueLabel.stringValue = String(telem.position.value)
-        velValueLabel.stringValue = String(telem.velocity.value)
-        accelValueLabel.stringValue = String(telem.acceleration.value)
-        temp1ValueLabel.stringValue = String(telem.temp1.value)
-        temp2ValueLabel.stringValue = String(telem.temp2.value)
-        temp3ValueLabel.stringValue = String(telem.temp3.value)
-        
-        print(telem.position.value)
+        // Values in table (update table using telem)
         
         // UI
-        mapView.set(position: telem.position.value)
+        if let pos = telem.data[1]?.value {
+            mapView.set(position: pos)
+        }
     }
     
     func updateMinMaxLabels() {

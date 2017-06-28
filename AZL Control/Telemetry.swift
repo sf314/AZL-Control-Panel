@@ -10,77 +10,113 @@ import Foundation
 
 /* Telemetry 
  Model pod telemetry
- Add as necessary
+ Infinitely extensible fields (dictionary used)
+ Can add new data points and point IDs
+ Can update a point based on ID
+ Can update limits of a point based on ID
+ 
+ Expected format of different telemetry types:
+ ID: "ID, 1, Position"
+ DAT: "DAT, 1, 32.33"
+ LIM: "LIM, 1, 0, 1650"
  */
 
 class Telemetry {
-    let expectedPacketSize = 7 // Including packet ID
     
-    // MARK: - Data fields
-    var position = DataPoint(lowerBound: 0, upperBound: 1700)
-    var velocity = DataPoint(lowerBound: 0, upperBound: 300)
-    var acceleration = DataPoint(lowerBound: -54, upperBound: 100)
-    var temp1 = DataPoint(lowerBound: 0, upperBound: 50)
-    var temp2 = DataPoint(lowerBound: 0, upperBound: 50)
-    var temp3 = DataPoint(lowerBound: 0, upperBound: 50)
+    // MARK: - Data dictionary
+    var data: [Int: DataPoint] = [:] // ID is key
     
-    // MARK: - Packet parsing
-    func add(data: [String]) {
-        // Be safe!
-        guard data.count >= expectedPacketSize else {
-            print("Invalid packet count. Expected \(self.expectedPacketSize), received \(data.count)")
+    // MARK: - Add new telemetry field ("ID")
+    func add(field packet: [String]) {
+        let id: Int
+        let name: String
+        
+        guard packet.count == 3  else {
+            print("Telemetry.add(field:_): ERROR: not 3 elements in ID packet")
             return
         }
         
-        // Guaranteed to have 6 telem fields below this line
-        print("Hey! data[1] = \(data[1])")
+        // Unpack id and field name (safely!)
+        if let val = Int(packet[1]) { id = val }
+        else {
+            print("Telmetry.add(field:_): ERROR: Cannot unpack ID")
+            return
+        }
         
-        if let x = Double(data[1]) {self.position.value = x} else {print("Failed on \(data[1])") }
-        if let x = Double(data[2]) {self.velocity.value = x}
-        if let x = Double(data[3]) {self.acceleration.value = x}
-        if let x = Double(data[4]) {self.temp1.value = x}
-        if let x = Double(data[5]) {self.temp2.value = x}
-        if let x = Double(data[6]) {self.temp3.value = x}
+        name = packet[2]
+        
+        // Create new entry in data dictionary (uses subscript syntax)
+        data[id] = DataPoint(stringName: name)
+        
+        // Test succeeded
     }
     
-    func setBounds(data: [String]) {
-        // Be safe!
-        guard data.count >= 2 * expectedPacketSize else {
-            print("Invalid packet count. Expected \(self.expectedPacketSize), received \(data.count)")
+    // MARK: - Data parsing ("DAT")
+    func add(data: [String]) {
+        let id: Int
+        let value: Double
+        
+        // Be safe
+        guard data.count == 3 else {
+            print("Telemetry.add(data:_): ERROR: not 3 elements in dat packet")
             return
         }
         
-        // Guaranteed to be settable from here!
-        if let x = Double(data[1]), let y = Double(data[2]) {
-            position.min = x
-            position.max = y
+        // Unpack point ID and data value
+        if let x = Int(data[1]) { id = x }
+        else {
+            print("Telemetry.add(data:_): ERROR: Cannot unpack ID")
+            return
         }
         
-        if let x = Double(data[3]), let y = Double(data[4]) {
-            velocity.min = x
-            velocity.max = y
+        if let x = Double(data[2]) { value = x }
+        else {
+            print("Telemetry.add(data:_): ERROR: Cannot unpack data value")
+            return
         }
         
-        if let x = Double(data[5]), let y = Double(data[6]) {
-            acceleration.min = x
-            acceleration.max = y
+        // Update value of point in array
+        self.data[id]?.value = value
+        
+        // Test succeeded
+    }
+    
+    // MARK: - Update upper/lower bounds ("LIM")
+    func updateBounds(data: [String]) {
+        let id: Int
+        let lowerBound: Double
+        let upperBound: Double
+        
+        // Be safe
+        guard data.count == 4 else {
+            print("Telemetry.updateBounds(data:_): ERROR: not 4 elements")
+            return
         }
         
-        if let x = Double(data[7]), let y = Double(data[8]) {
-            temp1.min = x
-            temp1.max = y
+        // Unpack id and other data (safely!)
+        if let x = Int(data[1]) { id = x }
+        else {
+            print("Telemetry.add(data:_): ERROR: Cannot unpack ID")
+            return
         }
         
-        if let x = Double(data[9]), let y = Double(data[10]) {
-            temp2.min = x
-            temp2.max = y
+        if let x = Double(data[2]) { lowerBound = x }
+        else {
+            print("Telemetry.add(data:_): ERROR: Cannot unpack lower bound")
+            return
         }
         
-        if let x = Double(data[11]), let y = Double(data[12]) {
-            temp3.min = x
-            temp3.max = y
+        if let x = Double(data[3]) { upperBound = x }
+        else {
+            print("Telemetry.add(data:_): ERROR: Cannot unpack upper bound")
+            return
         }
         
+        // Update bounds using 
+        self.data[id]?.min = lowerBound
+        self.data[id]?.max = upperBound
+        
+        // Awesome!
     }
     
     // MARK: - Helper functions

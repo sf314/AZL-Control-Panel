@@ -8,12 +8,9 @@
 
 import Foundation
 
-// TODO: - Create parsing logic (use TelemLogger ex.)
-
 /* Parser class
- Accept strings as inupt and, if newline is found, make data available
+ Accept strings as input and, if newline is found, make data available
     Use Optional return value
- Remove spaces and control characters
  */
 class Parser {
     // MARK: - Local Data
@@ -33,7 +30,7 @@ class Parser {
      - As last character
         - add arr[0] (one element)
         - save packet and clear temp
-     - As middel character
+     - As middle character
         - add arr[0]
         - save packet and clear temp
         - add arr[1]

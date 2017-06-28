@@ -13,13 +13,13 @@ import Foundation
  */
 
 class DataPoint {
+    var name: String
     var value = 0.0
-    var min = 0.0
-    var max = 0.0
+    var min = -100.0
+    var max = 100.0
     
-    init(lowerBound min: Double, upperBound max: Double) {
-        self.min = min
-        self.max = max
+    init(stringName: String) {
+        self.name = stringName
     }
     
     var valid: Bool {
