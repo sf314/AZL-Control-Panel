@@ -70,8 +70,20 @@ class AZL_ControlTests: XCTestCase {
     // MARK: - Test Parser class
     func testParser_goodData() {
         // Create good fake data to parse
+        let goodData = ["0.97\nDAT, 1, 0.", "03\nDAT, 2, 0.4", "7\nDAT, 3, 9.80", "\nDAT, 4, 2.43\n", "DAT, 5, 0.59\nD"]
+        let parser = Parser()
         
         // Make sure  parser works
+        for data in goodData {
+            parser.parse(data)
+            
+            if let packet = parser.getPacket() {
+                print("Good: (\(packet))")
+                XCTAssert(packet.contains("\n") == false)
+                XCTAssert(packet.contains(" ") == false)
+                XCTAssert(packet != "")
+            }
+        }
         
         // Parse all data and check for output on newline
 
@@ -79,6 +91,21 @@ class AZL_ControlTests: XCTestCase {
     
     func testParser_badData() {
         // Create bad data to parse
+        
+        let badData = ["0.97\nDAT, 1, \n0.", "03\nDAT, 2, \n0.4", "7\nDAT, 3, \n9.80", "\nDAT, 4, \n2.43\n", "DAT, 5, \n0.59\nD"]
+        let parser = Parser()
+        
+        // Make sure  parser works
+        for data in badData {
+            parser.parse(data)
+            
+            if let packet = parser.getPacket() {
+                print("Good: (\(packet))")
+                XCTAssert(packet.contains("\n") == false)
+                XCTAssert(packet.contains(" ") == false)
+                XCTAssert(packet != "")
+            }
+        }
         
         // Parse all data and ensure bad data is handled expectedly
 

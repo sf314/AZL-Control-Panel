@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC18D7A51F0513EA00B007D3 /* TableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC18D7A41F0513EA00B007D3 /* TableExtension.swift */; };
 		DC258AFA1EEE058000CA9683 /* ORSSerialPort.m in Sources */ = {isa = PBXBuildFile; fileRef = DC258AF11EEE058000CA9683 /* ORSSerialPort.m */; };
 		DC258AFB1EEE058000CA9683 /* ORSSerialPortManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC258AF31EEE058000CA9683 /* ORSSerialPortManager.m */; };
 		DC258AFC1EEE058000CA9683 /* ORSSerialBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC258AF51EEE058000CA9683 /* ORSSerialBuffer.m */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC18D7A41F0513EA00B007D3 /* TableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableExtension.swift; sourceTree = "<group>"; };
 		DC258AEF1EEE057F00CA9683 /* AZL Control-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AZL Control-Bridging-Header.h"; sourceTree = "<group>"; };
 		DC258AF01EEE058000CA9683 /* ORSSerialPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPort.h; sourceTree = "<group>"; };
 		DC258AF11EEE058000CA9683 /* ORSSerialPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPort.m; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				DCA9980A1EEE04C50034A6C6 /* AppDelegate.swift */,
 				DCA9980C1EEE04C50034A6C6 /* ControlPanelController.swift */,
+				DC18D7A41F0513EA00B007D3 /* TableExtension.swift */,
 				DC3830F71EF075DC00607281 /* Parser.swift */,
 				DC3830FA1EF0891300607281 /* DataPoint.swift */,
 				DC3830FD1EF09ED300607281 /* Telemetry.swift */,
@@ -264,6 +267,7 @@
 				DC3831011EF09EE600607281 /* PacketRouter.swift in Sources */,
 				DC258AFD1EEE058000CA9683 /* ORSSerialPacketDescriptor.m in Sources */,
 				DCA9980B1EEE04C50034A6C6 /* AppDelegate.swift in Sources */,
+				DC18D7A51F0513EA00B007D3 /* TableExtension.swift in Sources */,
 				DC258AFC1EEE058000CA9683 /* ORSSerialBuffer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

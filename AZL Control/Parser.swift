@@ -48,6 +48,12 @@ class Parser {
                 if firstCharacter(of: input) == "\n" {
                     packet = tempString
                     tempString = stringArray[0]
+                    
+                    // Also check if last character is also newline
+                    if input.characters.last == "\n" {
+                        print("Found newline as last")
+                        
+                    }
                 } else {
                     tempString += stringArray[0]
                     packet = tempString

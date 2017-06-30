@@ -97,6 +97,7 @@ class ControlPanelController: NSViewController, ORSSerialPortDelegate {
     
     
     
+    
     // MARK: - UI Elements *****************************************************
     
     // Serial stuff
@@ -108,31 +109,13 @@ class ControlPanelController: NSViewController, ORSSerialPortDelegate {
     @IBOutlet weak var titleBar: NSView!
     @IBOutlet weak var background: NSView!
     @IBOutlet weak var connectButton: NSButton!
+    
+    // Visual flairs
     @IBOutlet weak var mapView: MapView!
 
-    @IBOutlet weak var positionMinLabel: NSTextField!
-    @IBOutlet weak var positionValueLabel: NSTextField!
-    @IBOutlet weak var positionMaxLabel: NSTextField!
+    // Table stuff
+    @IBOutlet weak var tableView: NSTableView!
     
-    @IBOutlet weak var velMinlabel: NSTextField!
-    @IBOutlet weak var velValueLabel: NSTextField!
-    @IBOutlet weak var velMaxLabel: NSTextField!
-    
-    @IBOutlet weak var accelMinLabel: NSTextField!
-    @IBOutlet weak var accelValueLabel: NSTextField!
-    @IBOutlet weak var accelMaxLabel: NSTextField!
-    
-    @IBOutlet weak var temp1MinLabel: NSTextField!
-    @IBOutlet weak var temp1ValueLabel: NSTextField!
-    @IBOutlet weak var temp1MaxLabel: NSTextField!
-    
-    @IBOutlet weak var temp2MinLabel: NSTextField!
-    @IBOutlet weak var temp2ValueLabel: NSTextField!
-    @IBOutlet weak var temp2MaxLabel: NSTextField!
-    
-    @IBOutlet weak var temp3MinLabel: NSTextField!
-    @IBOutlet weak var temp3ValueLabel: NSTextField!
-    @IBOutlet weak var temp3MaxLabel: NSTextField!
     
     @IBAction func sendButton(sender: AnyObject) {
         let packet = commandField.stringValue
@@ -154,15 +137,22 @@ class ControlPanelController: NSViewController, ORSSerialPortDelegate {
     func updateTelemetryLabels() {
         
         // Values in table (update table using telem)
+        reloadTelemetry()
         
         // UI
-        if let pos = telem.data[1]?.value {
-            mapView.set(position: pos)
+        if let x = telem.data[1]?.value {
+            mapView.set(position: x)
         }
     }
     
     func updateMinMaxLabels() {
         
+    }
+    
+    // MARK: - Update Table (helper method) ************************************
+    func reloadTelemetry() {
+        // Set anything? No cuz it's all from telem.data
+        tableView.reloadData()
     }
     
 
@@ -177,6 +167,21 @@ class ControlPanelController: NSViewController, ORSSerialPortDelegate {
 
         // Do any additional setup after loading the view.
         
+        // Set table stuff
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        // MARK: - Testing!!!! Remove before flight!
+//        telem.add(field: ["ID", "1", "Position"])
+//        telem.add(field: ["ID", "2", "Velocity"])
+//        telem.add(field: ["ID", "3", "Accel"])
+//        telem.add(field: ["ID", "4", "Extra"])
+//        
+//        telem.add(data: ["DAT", "1", "13.5"])
+//        telem.add(data: ["DAT", "2", "21.3"])
+//        telem.add(data: ["DAT", "3", "1234.5"])
+//        
+//        reloadTelemetry()
     }
 
     override var representedObject: Any? {
