@@ -10,31 +10,17 @@ import Foundation
 
 /* Parser class
  Accept strings as input and, if newline is found, make data available
-    Use Optional return value
+ Use Optional return value
  */
 class Parser {
     // MARK: - Local Data
     var isValid = false
-    var packet = "" // Hold formed packet
+    var packet: [String] = [] // Hold formed packet
     var tempString = "" // Hold packet during formation
     
     // NOTES
     /*
-     No newline:
-     - simple append
-     - invalid
-     Has newline:
-     - As first character
-        - save packet and clear temp
-        - add arr[0] (one element)
-     - As last character
-        - add arr[0] (one element)
-        - save packet and clear temp
-     - As middle character
-        - add arr[0]
-        - save packet and clear temp
-        - add arr[1]
-     - Final: Mark valid
+     See paper in purple folder!
      */
     
     // MARK: - Parsing (for newline)
@@ -43,24 +29,64 @@ class Parser {
         // Check if input contains string (and therefore marks packet end)
         if input.contains("\n") {
             let stringArray = self.makeArray(from: input, by: "\n")
-            if stringArray.count == 1 {
-                // Check if newline is first or last character
-                if firstCharacter(of: input) == "\n" {
-                    packet = tempString
-                    tempString = stringArray[0]
-                } else {
-                    tempString += stringArray[0]
-                    packet = tempString
-                    tempString.removeAll()
-                }
-            } else if input == "\n" {
-                packet = tempString
-                tempString = ""
-            } else {
-                // Newline must be middle character
+            // If just a newline character, ignore.
+            if input == "\n" {return}
+            
+            // Look at first and last character for newlines
+            if firstCharacter(of: input) != "\n" && input.characters.last! != "\n" {        // DD
+                // Add first and stage for return (and clear temp)
                 tempString += stringArray[0]
-                packet = tempString
-                tempString = stringArray[1]
+                packet.append(tempString)
+                tempString = ""
+                
+                // Add all the middle ones (safely check size of array, can break early)
+                if stringArray.count == 2 {
+                    // Just add that last one to temp
+                    tempString += stringArray[1]
+                }
+                for index in 1..<stringArray.count - 1 {
+                    packet.append(stringArray[index]) // Does this work for array size 2?
+                }
+                
+                // Add the last one to temp string
+                tempString = stringArray[stringArray.count - 1]
+                
+            } else if firstCharacter(of: input) == "\n" && input.characters.last! != "\n" { // ND
+                // First char is newline. Stage what's currently in temp
+                packet.append(tempString)
+                tempString = ""
+                
+                // Add all the ones except last (array starts at first data)
+                for index in 0..<stringArray.count - 1 {
+                    packet.append(stringArray[index])
+                }
+                
+                // Append last one to temp
+                tempString = stringArray[stringArray.count - 1]
+                
+            } else if firstCharacter(of: input) != "\n" && input.characters.last! == "\n" { // DN
+                // Add first to temp and stage for return
+                tempString += stringArray[0]
+                packet.append(tempString)
+                tempString = ""
+                
+                // Add everything else (newline was found last!)
+                for index in 1..<stringArray.count {
+                    packet.append(stringArray[index])
+                }
+                
+            } else if firstCharacter(of: input) == "\n" && input.characters.last! == "\n" { // NN
+                // Interesting case...
+                // First character is newline. Stage what's in temp
+                packet.append(tempString)
+                tempString = ""
+                
+                // Add everything!
+                for string in stringArray {
+                    packet.append(string)
+                }
+            } else {
+                print("***** Impossible case *****")
             }
             isValid = true
         } else {
@@ -72,14 +98,22 @@ class Parser {
     
     // MARK: - Return packet
     // Use if let structure to check
-    func getPacket() -> String? {
+    func getPacket() -> [String]? {
         if isValid {
+            var result: [String] = []
+            
             // Remove all control characters
-            packet = packet.replacingOccurrences(of: " ", with: "")
-            packet = packet.replacingOccurrences(of: "\t", with: "")
-            packet = packet.replacingOccurrences(of: "\n", with: "")
-            packet = packet.replacingOccurrences(of: "\r", with: "")
-            return packet
+            for var str in packet {
+                str = str.replacingOccurrences(of: " ", with: "")
+                str = str.replacingOccurrences(of: "\t", with: "")
+                str = str.replacingOccurrences(of: "\n", with: "")
+                str = str.replacingOccurrences(of: "\r", with: "")
+                
+                result.append(str)
+            }
+            
+            packet.removeAll()
+            return result
         } else {
             return nil
         }
@@ -103,3 +137,4 @@ class Parser {
     
     
 }
+

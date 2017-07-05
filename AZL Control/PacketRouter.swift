@@ -20,20 +20,22 @@ import Foundation
  LIM: Provided necessarily during runtime to set new max/min limits for a data
     point. Requires the integer ID of the desired telemetry field.
  */
-func routePacket(_ packet: String) {
+func routePacket(_ packet: [String]) {
     // Turn it into array and switch on packet ID
-    let arr = packet.components(separatedBy: ",")
-    let id = arr[0]
-    
-    switch id {
-    case "ID":
-        telem.add(field: arr)
-    case "DAT":
-        telem.add(data: arr)
-    case "LIM":
-        telem.updateBounds(data: arr)
-    default:
-        print("\troutePacket(): Invalid packet ID: (\(id))")
-        break
+    for str in packet {
+        let arr = str.components(separatedBy: ",")
+        let id = arr[0]
+        
+        switch id {
+        case "ID":
+            telem.add(field: arr)
+        case "DAT":
+            telem.add(data: arr)
+        case "LIM":
+            telem.updateBounds(data: arr)
+        default:
+            print("\troutePacket(): Invalid packet ID: (\(id))")
+            break
+        }
     }
 }
