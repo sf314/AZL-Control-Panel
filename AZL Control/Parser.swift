@@ -29,21 +29,23 @@ class Parser {
         // Check if input contains string (and therefore marks packet end)
         if input.contains("\n") {
             let stringArray = self.makeArray(from: input, by: "\n")
-            if stringArray.count == 1 {
-                // Check if newline is first or last character
-                if firstCharacter(of: input) == "\n" {
-                    packet = tempString
-                    tempString = stringArray[0]
-                    
-                    // Also check if last character is also newline
-                    if input.characters.last == "\n" {
-                        print("Found newline as last")
-                        
-                    }
-                } else {
-                    tempString += stringArray[0]
-                    packet = tempString
-                    tempString.removeAll()
+            // If just a newline character, ignore.
+            if input == "\n" {return}
+            
+            // Look at first and last character for newlines
+            if firstCharacter(of: input) != "\n" && input.characters.last! != "\n" {        // DD
+                // Add first and stage for return (and clear temp)
+                tempString += stringArray[0]
+                packet.append(tempString)
+                tempString = ""
+                
+                // Add all the middle ones (safely check size of array, can break early)
+                if stringArray.count == 2 {
+                    // Just add that last one to temp
+                    tempString += stringArray[1]
+                }
+                for index in 1..<stringArray.count - 1 {
+                    packet.append(stringArray[index]) // Does this work for array size 2?
                 }
                 
                 // Add the last one to temp string
